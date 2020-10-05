@@ -26,22 +26,21 @@
 				<version>3.0.0</version>
 			</plugin>
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-				<cloudHubDeployment>
-			      <uri>https://anypoint.mulesoft.com/</uri>
-			      <muleVersion>4.3.0</muleVersion>
-			      <username>Reddy__1998</username>
-			      <password>Sandeep98$</password>
-			      <applicationName>CI-CD-Deployment</applicationName>
-			      <environment>Sandbox</environment>
-			      <workers>1</workers>
-				  <workerType>Micro</workerType>
-			   </cloudHubDeployment>
-				</configuration>
+				   <groupId>org.mule.tools.maven</groupId>
+				   <artifactId>mule-maven-plugin</artifactId>
+				   <version>3.3.5</version>
+				   <extensions>true</extensions>
+				   <configuration>
+				   <cloudHubDeployment>
+				   <username>Reddy__1998</username>
+				   <password>Sandeep98$</password>         
+				   <workers>1</workers>
+				   <workerType>Micro</workerType>
+				   <environment>Sandbox</environment>
+				   <muleVersion>4.3.0</muleVersion>
+				   <applicationName>Demo-Application</applicationName>
+				   </cloudHubDeployment>
+				    </configuration>
 			</plugin>
 		</plugins>
 	</build>
