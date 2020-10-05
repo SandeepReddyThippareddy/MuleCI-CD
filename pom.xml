@@ -32,14 +32,15 @@
 				<extensions>true</extensions>
 				<configuration>
 				<cloudHubDeployment>
-				<username>Reddy__1998</username>
-				<password>Sandeep98$</password>
-				<environment>Sandbox</environment>
-				<workers>1</workers>
-				<workerType>Micro</workerType>
-				<muleVersion>4.3.0</muleVersion>
-				<applicationName>World-Time-Zone-Using-CI/CD</applicationName>
-				</cloudHubDeployment>
+			      <uri>https://anypoint.mulesoft.com/</uri>
+			      <muleVersion>4.3.0</muleVersion>
+			      <username>Reddy__1998</username>
+			      <password>Sandeep98$</password>
+			      <applicationName>CI-CD-Deployment</applicationName>
+			      <environment>Sandbox</environment>
+			      <workers>1</workers>
+				  <workerType>Micro</workerType>
+			   </cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
