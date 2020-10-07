@@ -3,7 +3,12 @@ pipeline{
 	stages{
 		stage('Building Application') {
 			steps{
-			bat 'mvn clean install'
+			bat 'mvn clean install -DskipTests'
+			}
+		}
+		stage('Munit Testing') {
+			steps{
+				bat 'mvn test'
 			}
 		}
 		stage('Deploying Application') {

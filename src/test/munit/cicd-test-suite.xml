@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="cicd-test-suite.xml" />
+	<munit:test name="cicd-test-suite-cicdFlowTest" doc:id="0e8f628f-d15d-4c17-a97c-fbe2929b9355" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="f0e1e32f-4940-4096-8762-13d70dddd993" name="cicd-test-suiteFlow"/>
+			<flow-ref doc:name="Flow-ref to cicdFlow" doc:id="4b535bfe-83dd-4bba-a36f-d73a858de94d" name="cicdFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="645ee735-31d8-4632-8c79-02ef01853875" expression="#[payload]" is="#[MunitTools::both(MunitTools::notNullValue(), MunitTools::withMediaType('text/plain'))]"/>
+		</munit:validation>
+	</munit:test>
+	<flow name="cicd-test-suiteFlow" doc:id="af408674-0ee9-4554-ba63-03899dbd18a1" >
+		<munit:set-event doc:name="Set Event" doc:id="7f190f7f-ecc6-43bc-b4c2-2a47d3098674" >
+			<munit:attributes value='#[{uriParams:{region:"Europe", city:"London.txt"}}]' />
+		</munit:set-event>
+	</flow>
+	<munit:test name="cicd-test-suite-cicdFlowTest1" doc:id="c9b2b0c3-5772-423e-92f9-c83234c8a37b" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="0a4ec03f-97ee-43c9-9b2a-f37df1d9bd22" name="cicd-test-suiteFlow" />
+			<flow-ref doc:name="Flow-ref to cicdFlow" doc:id="2895179c-169c-46dc-bcab-5adf602e6431" name="cicdFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="bef06d45-a97f-4d7e-87c1-f9090f62b573" is="#[MunitTools::withEncoding('UTF-8')]" expression="#[payload]" message="Failed - TestCase1"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="cicd-test-suite-cicdFlowTest2" doc:id="51b2ed80-78f6-4348-866c-f63aa1eb60ba" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="1c4ee8d0-1e76-4a55-9a15-0f5082306adb" name="cicd-test-suiteFlow" />
+			<flow-ref doc:name="Flow-ref to cicdFlow" doc:id="140a1e4f-62d8-415c-9bf7-32a1a09d256c" name="cicdFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="93126098-717a-49a8-b29b-aebc9d6dd967" expression="#[payload]" is="#[MunitTools::withMediaType('text/plain')]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
