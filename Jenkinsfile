@@ -1,22 +1,22 @@
 pipeline{
 	agent any
 	stages{
-		stage('Building Application') {
+		stage('Building Application'){
 			steps{
 			bat 'mvn clean install -DskipTests'
 			}
 		}
-		stage('Munit Testing') {
+		stage('Munit Testing'){
 			steps{
 				bat 'mvn test'
 			}
 		}
-		stage('Deploying Application') {
+		stage('Deploying Application'){
 			steps{
 			bat 'mvn package deploy -DmuleDeploy'
 			}
 		}
-		stage('Regression Testing') {
+		stage('Regression Testing'){
 			steps{
 			bat 'C:\\Users\\jodha\\AppData\\Roaming\\npm\\newman run C:\\Users\\jodha\\Desktop\\MuleSoft\\CI-CD-Jenkins-Deployment.postman_collection.json -r htmlextra --reporter-htmlextra-export C:\\Users\\jodha\\Desktop\\MuleSoft'
 			}
