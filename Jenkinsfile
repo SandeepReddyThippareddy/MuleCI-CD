@@ -6,11 +6,6 @@ pipeline{
 			bat 'mvn clean install -DskipTests'
 			}
 		}
-		stage('Munit Testing'){
-			steps{
-				bat 'mvn test'
-			}
-		}
 		stage('Deploying Application'){
 			steps{
 			bat 'mvn package deploy -DmuleDeploy'
