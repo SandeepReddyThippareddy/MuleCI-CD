@@ -8,7 +8,7 @@
 		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
 		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
 	<munit:config name="cicd-test-suite.xml" />
-	<munit:test name="cicd-test-suite-cicdFlowTest" doc:id="0e8f628f-d15d-4c17-a97c-fbe2929b9355" description="Test">
+	<munit:test name="cicd-test-suite-cicdFlowTest" doc:id="0e8f628f-d15d-4c17-a97c-fbe2929b9355" description="Test" ignore="true">
 		<munit:execution >
 			<flow-ref doc:name="Flow Reference" doc:id="f0e1e32f-4940-4096-8762-13d70dddd993" name="cicd-test-suiteFlow"/>
 			<flow-ref doc:name="Flow-ref to cicdFlow" doc:id="4b535bfe-83dd-4bba-a36f-d73a858de94d" name="cicdFlow"/>
@@ -22,7 +22,7 @@
 			<munit:attributes value='#[{uriParams:{region:"Europe", city:"London.txt"}}]' />
 		</munit:set-event>
 	</flow>
-	<munit:test name="cicd-test-suite-cicdFlowTest1" doc:id="c9b2b0c3-5772-423e-92f9-c83234c8a37b" description="Test">
+	<munit:test name="cicd-test-suite-cicdFlowTest1" doc:id="c9b2b0c3-5772-423e-92f9-c83234c8a37b" description="Test" ignore="true">
 		<munit:execution >
 			<flow-ref doc:name="Flow Reference" doc:id="0a4ec03f-97ee-43c9-9b2a-f37df1d9bd22" name="cicd-test-suiteFlow" />
 			<flow-ref doc:name="Flow-ref to cicdFlow" doc:id="2895179c-169c-46dc-bcab-5adf602e6431" name="cicdFlow"/>

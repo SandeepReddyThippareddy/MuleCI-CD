@@ -23,4 +23,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</http:request>
 		<logger level="INFO" doc:name="Logger" doc:id="a1169863-7609-4af6-ad1b-d7e611deb9e0" message="Execution finished.!"/>
 	</flow>
+	<flow name="cicdFlow1" doc:id="dda3c56d-31cf-4860-b77e-92dfa061ed24" >
+		<http:listener doc:name="Listener" doc:id="e84261c9-3872-4cae-a6d9-f59bc7395251" config-ref="HTTP_Listener_config" path="/dummy"/>
+		<set-payload value='"Some Value"' doc:name="Set Payload" doc:id="295ab5cd-7b78-4162-a5c5-9c2f3145d6e6" />
+	</flow>
 </mule>
